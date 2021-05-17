@@ -1,4 +1,4 @@
-import com.github.ivetan.Utilities
+package com.github.ivetan
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -7,7 +7,7 @@ object Crush extends App {
   //https://www.hackerrank.com/challenges/crush/problem
 
   val folderName = "./src/resources"
-  val filePaths = Utilities.getFileNames(folderName, prefix="crush", suffix = "xt")
+  val filePaths = Utilities.getFileNames(folderName, prefix = "crush", suffix = "xt")
   filePaths.foreach(println)
 
   def getColumn(lines: Array[String], columnIndex: Int): Array[Int] = {
@@ -16,7 +16,7 @@ object Crush extends App {
     columnArray
   }
 
-  def getArrayMaxValue(filePath: String) : Long = {
+  def getArrayMaxValue(filePath: String): Long = {
     val lines = Utilities.getLinesFromFile(filePath)
     val nrOfElements = lines(0).split(" ").toSeq.head.toInt
     val numbOfOperations = lines(0).split(" ").toSeq.last.toInt
@@ -30,8 +30,8 @@ object Crush extends App {
     var max = 0
 
     for (n <- 0 until numbOfOperations) {
-        for (i <- startIndexes(n) -1 until endIndexes(n)) {
-          myArray.update(i, myArray(i) + valuesToAdd(n))
+      for (i <- startIndexes(n) - 1 until endIndexes(n)) {
+        myArray.update(i, myArray(i) + valuesToAdd(n))
         if (myArray(i) > max) max = myArray(i)
       }
     }
