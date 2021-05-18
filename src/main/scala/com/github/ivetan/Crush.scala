@@ -27,15 +27,12 @@ object Crush extends App {
     val endIndexes = getColumn(lines, 1)
     val valuesToAdd = getColumn(lines, 2)
 
-    var max = 0
-
     for (n <- 0 until numbOfOperations) {
       for (i <- startIndexes(n) - 1 until endIndexes(n)) {
         myArray.update(i, myArray(i) + valuesToAdd(n))
-        if (myArray(i) > max) max = myArray(i)
       }
     }
-    max
+    myArray.max
   }
 
   def printResult(max: Long, filePath: String): Unit = {
